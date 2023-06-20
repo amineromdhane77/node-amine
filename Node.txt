@@ -1,0 +1,44 @@
+1/use contact
+2/db.createCollection('contactlist')
+
+3/db.contactlist.insertMany([{
+
+  "lastname": "Ben Lahmer",
+  "firstname": "Fares",
+  "Email": "fares@gmail.com",
+  "age": 26
+},
+{
+
+  "lastname": "Kefi",
+  "firstname": "Seif",
+  "Email": "Kefi@gmail.com",
+  "age": 15
+},
+
+{
+
+  "lastname": "Fatnassi",
+  "First name": "Sarra",
+  "Email": "sarra.f@gmail.com",
+  "age": 40
+},
+  {
+
+  "lastname": "Ben Yahia",
+  "firstname": "Rym", 
+  "age": 4
+
+},
+{
+
+  "lastname": "Cherif",
+  "firstname": "Sami",
+  "age": 3
+}])
+4/db.contactlist.find({age:{$gt:18}}).pretty()
+5/db.contactlist.find({$and:[{age:{$gt:18}},{lastname:{$regex:"ah"}}]}).pretty()
+6/db.contactlist.update({firstname:"Seif"},{$set:{firstname:"Anis"}})
+7/db.contactlist.find().pretty()
+8/db.contactlist.remove({age:{$lt:5}})
+9/db.contactlist.find().pretty()
